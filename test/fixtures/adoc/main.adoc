@@ -1,0 +1,8 @@
+include::common.adoc[]
+
+= This is a test
+
+A para with a link:https://{domain}/index.html[oops]
+
+Other text.
+
