@@ -21,8 +21,7 @@ function testWithUrls(urls = []) {
 }
 
 const ignoreUrls = testWithUrls(
-`
-https://www.example.net/achiever.php?boundary=airport
+`https://www.example.net/achiever.php?boundary=airport
 http://birthday.example.org/bomb.html?acoustics=apparel&army=bite
 https://www.example.org/beef/basketball.htm?appliance=boy&bead=belief
 https://appliance.example.com/amount.html
@@ -33,6 +32,11 @@ http://www.example.com/book.html#airport
 http://example.com/beds/argument
 https://www.example.com/`.split('\n'));
 
+const goodUrls = testWithUrls(
+`https://google.com/`.split('\n'));
+
+
 module.exports = {
-  ignoreUrls
+  ignoreUrls,
+  goodUrls
 };

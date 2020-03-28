@@ -2,7 +2,13 @@ include::common.adoc[]
 
 = This is a test
 
+// Regular link
 A para with a link:https://{domain}/index.html[oops]
 
 Other text.
 
+// With formatting
+_link:++https://example.com++[Configuring basic system settings]_
+
+// With formatting and integer, ref converter fixme
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/installing-using-langpacks[Installing and using langpacks]

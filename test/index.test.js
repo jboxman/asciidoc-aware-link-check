@@ -2,7 +2,6 @@ import { describe } from 'riteway';
 const path = require('path');
 const promisfy = require('util').promisify;
 const exec = promisfy(require('child_process').exec);
-const format = require('util').format;
 
 // Without a subprocess, commander.js seems to eat argv when parseAsync is used
 // error: unknown option '-r'
@@ -10,72 +9,55 @@ const format = require('util').format;
 const cli = require('../lib/cli');
 const f = cli.actionWithOptions;
 
-const createUrlCatalog = require('../lib/url-catalog');
 const linkExtractor = require('../lib/get-links');
 const linkChecker = require('../lib');
+const linkCheck = require('../lib/link-check');
 
-const urls = require('./fixtures/urls');
+const {
+  logger
+} = require('./util');
 
-function logger() {
-  const logs = {
-    stdout: [],
-    stderr: []
-  };
-
-  return {
-    log(v) {
-      return logs['stdout'].push(format(v, ...Array.from(arguments).slice(1)));
-    },
-
-    error(v) {
-      return logs['stderr'].push(format(v, ...Array.from(arguments).slice(1)));
-    },
-
-    getLog(key) {
-      return logs[key];
-    },
-
-    reset() {
-      for(const key of ['stdout', 'stderr']) {
-        logs[key] = [];
-      }
-    }
-  }
-}
-
-function testExtractor() {
-  const catalog = createUrlCatalog();
-
-  urls.forEach(url => {
-    catalog.addUrl(
-      url,
-      {
-        linkType: 'external',
-        linkText: 'text',
-        sourceFile: 'file',
-        sourceDirectory: 'dir',
-        lineNumber: 1
-      });
-  });
-
-  return catalog;
-}
+const {
+  ignoreUrls,
+  goodUrls
+} = require('./fixtures/urls');
 
 describe('CLI', async assert => {
   const log = logger();
   const opts = { showProgressBar: false };
   const overrides = { linkExtractor, linkChecker, logger: log };
 
-  //await f(opts)('../rhev-docs/doc-Administration_Guide/master.adoc');
-
-  await f({ ...overrides,  linkExtractor: testExtractor })(path.join(__dirname, './fixtures/adoc/main.adoc'), opts);
+  await f({ ...overrides, linkExtractor: ignoreUrls })(path.join(__dirname, './fixtures/adoc/main.adoc'), opts);
 
   assert({
-    given: 'list of links',
-    should: 'output a list of links',
-    actual: log.getLog('stdout').filter(l => l.includes('✓')).length,
+    given: 'links that match ignore list',
+    should: 'ignore links',
+    actual: log.getLog('stdout').filter(l => l.includes('~')).length,
     expected: 10
   });
+
+  linkCheck.setFake().dead();
+  await f({ ...overrides, linkExtractor: goodUrls })(path.join(__dirname, './fixtures/adoc/main.adoc'), opts);
+
+  assert({
+    given: 'valid links that are broken',
+    should: 'output a list of broken links',
+    actual: log.getLog('stdout').filter(l => l.includes('✖')).length,
+    expected: 1
+  });
+
+  linkCheck.setFake().alive();
+  await f({ ...overrides, linkExtractor: goodUrls })(path.join(__dirname, './fixtures/adoc/main.adoc'), opts);
+
+  assert({
+    given: 'valid links that are working',
+    should: 'output a list of working links',
+    actual: log.getLog('stdout').filter(l => l.includes('✓')).length,
+    expected: 1
+  });
+
+  //await f({ ...overrides })(path.join(__dirname, './fixtures/adoc/main.adoc'), opts)
+  //  .catch(e => e);
 });
 
 describe('CLI childprocess', async assert => {
