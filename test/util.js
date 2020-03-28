@@ -1,3 +1,5 @@
+const format = require('util').format;
+
 function logger() {
   const logs = {
     stdout: [],
