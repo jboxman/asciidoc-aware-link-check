@@ -31,6 +31,7 @@ Options:
   -q, --quiet    Display errors only
   --csv          Output in CSV format
   -n, --dry      Dry run
+  --asciibinder  Support asciibinder style include directives
   -h, --help     output usage information
 ```
 
@@ -51,7 +52,11 @@ Known issues
 ====
 
 * A `HTTP/1.1 301 Moved Permanently` is considered a broken link.
-* If you build your documentation using `ascii_binder`, it will automatically resolve included files relative to the root directory. This is not compatible with how Asciidoctor handles includes and will fail.
+
+TODO
+====
+
+* Finish tests
 
 Credits
 ====

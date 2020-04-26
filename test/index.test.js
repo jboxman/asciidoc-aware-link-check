@@ -56,7 +56,7 @@ describe('CLI', async assert => {
     expected: 1
   });
 
-  //await f({ ...overrides })(path.join(__dirname, './fixtures/adoc/main.adoc'), opts)
+  //await f({ ...overrides, linkExtractor: goodUrls })(path.join(__dirname, './fixtures/adoc/main.adoc'), opts)
   //  .catch(e => e);
 });
 
