@@ -1,7 +1,7 @@
 {
   "name": "asciidoc-aware-link-check",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test the links in your asciidoc files.",
   "main": "index.js",
   "scripts": {
     "test": "riteway -r esm test/**/*.test.js"
@@ -9,9 +9,17 @@
   "bin": {
     "asciidoc-aware-link-check": "./asciidoc-aware-link-check"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["asciidoc", "adoc", "links", "asciidoctor"],
+  "author": "Jason Boxman <jasonb@edseek.com> (http://linkedin.com/in/jboxman)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jboxman/asciidoc-aware-link-check.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jboxman/asciidoc-aware-link-check/issues"
+  },
+  "homepage": "https://adoclinkcheck.edseek.com/",
   "dependencies": {
     "asciidoctor": "^2.1.0",
     "async": "^3.1.1",
