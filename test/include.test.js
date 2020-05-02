@@ -3,7 +3,7 @@ import { describe } from 'riteway';
 const path = require('path');
 const asciidoctor = require(`asciidoctor`)();
 
-const includeProcessor = require('../lib/asciidoc-include-processor');
+const includeProcessor = require('../lib/asciidoc/asciidoc-include-processor');
 
 describe('asciidoctor include preprocessor', async assert => {
   const assemblyFile = path.join(path.dirname(__filename), 'fixtures', 'adoc', 'main.adoc');
