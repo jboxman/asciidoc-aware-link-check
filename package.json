@@ -1,13 +1,18 @@
 {
   "name": "asciidoc-aware-link-check",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test the links in your asciidoc files.",
   "main": "index.js",
   "scripts": {
-    "test": "riteway -r esm test/**/*.test.js"
+    "test": "riteway -r esm test/**/*.test.js",
+    "check-version": "node check-version.js",
+    "postinstall": "npm run-script check-version"
   },
   "bin": {
     "asciidoc-aware-link-check": "./asciidoc-aware-link-check"
+  },
+  "engines": {
+    "node": ">= 10"
   },
   "keywords": [
     "asciidoc",
