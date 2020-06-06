@@ -9,7 +9,12 @@
   "bin": {
     "asciidoc-aware-link-check": "./asciidoc-aware-link-check"
   },
-  "keywords": ["asciidoc", "adoc", "links", "asciidoctor"],
+  "keywords": [
+    "asciidoc",
+    "adoc",
+    "links",
+    "asciidoctor"
+  ],
   "author": "Jason Boxman <jasonb@edseek.com> (http://linkedin.com/in/jboxman)",
   "license": "MIT",
   "repository": {
@@ -19,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/jboxman/asciidoc-aware-link-check/issues"
   },
-  "homepage": "https://adoclinkcheck.edseek.com/",
+  "homepage": "http://edseek.com/docs/projects/asciidoc-aware-link-check/",
   "dependencies": {
     "asciidoctor": "^2.1.0",
     "async": "^3.1.1",
