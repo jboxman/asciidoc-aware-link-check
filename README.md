@@ -19,7 +19,7 @@ To learn about supported options, enter the following command:
 
 ```
 $ asciidoc-aware-link-check --help
-Usage: asciidoc-aware-link-check [options] [ASSEMBLY_FILE]
+Usage: asciidoc-aware-link-check [options] ASSEMBLY_FILE
 
 Options:
   --no-progress  Hide progress bar.
@@ -30,7 +30,7 @@ Options:
   -h, --help     output usage information
 ```
 
-To validate links, enter the following command. Replace `<assembly-file>` with the file name that includes any `include` statements needed to successfully build your documentation.
+To validate links, enter the following command. Replace `<ASSEMBLY_FILE>` with the file name that includes any `include` statements needed to successfully build your documentation.
 
 ```
 $ asciidoc-aware-link-check <ASSEMBLY_FILE>
