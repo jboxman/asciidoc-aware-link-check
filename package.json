@@ -1,6 +1,6 @@
 {
   "name": "asciidoc-aware-link-check",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Test the links in your asciidoc files.",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,8 @@
     "chalk": "^3.0.0",
     "commander": "^4.1.0",
     "link-check": "^4.4.7",
-    "progress": "^2.0.3"
+    "progress": "^2.0.3",
+    "semver": "^7.3.2"
   },
   "devDependencies": {
     "esm": "^3.2.25",
