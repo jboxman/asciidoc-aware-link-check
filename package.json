@@ -1,6 +1,6 @@
 {
   "name": "asciidoc-aware-link-check",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Test the links in your asciidoc files.",
   "main": "index.js",
   "scripts": {
