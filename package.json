@@ -4,7 +4,7 @@
   "description": "Test the links in your asciidoc files.",
   "main": "index.js",
   "scripts": {
-    "test": "riteway -r esm test/**/*.test.js",
+    "test": "tape test/**/*.test.js",
     "check-version": "node check-version.js",
     "postinstall": "npm run-script check-version"
   },
@@ -31,16 +31,16 @@
   },
   "homepage": "http://edseek.com/docs/projects/asciidoc-aware-link-check/",
   "dependencies": {
-    "asciidoctor": "^2.1.0",
-    "async": "^3.1.1",
-    "chalk": "^3.0.0",
-    "commander": "^4.1.0",
+    "asciidoctor": "^2.2.5",
+    "async": "^3.2.1",
+    "chalk": "^4.1.2",
+    "commander": "^8.2.0",
     "link-check": "^4.4.7",
     "progress": "^2.0.3",
-    "semver": "^7.3.2"
+    "semver": "^7.3.5"
   },
   "devDependencies": {
     "esm": "^3.2.25",
-    "riteway": "^6.1.1"
+    "riteway": "^6.3.1"
   }
 }
