@@ -1,4 +1,4 @@
-import { describe } from 'riteway';
+const { describe } = require('riteway');
 
 const path = require('path');
 const asciidoctor = require(`asciidoctor`)();
