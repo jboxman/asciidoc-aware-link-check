@@ -1,7 +1,7 @@
 {
   "name": "@jboxman/asciidoc-aware-link-check",
   "version": "2.0.0",
-  "description": "Test the links in your asciidoc files.",
+  "description": "Test the links in your Asciidoc files.",
   "main": "index.js",
   "scripts": {
     "test": "tape test/**/*.test.js",
@@ -30,6 +30,9 @@
     "url": "https://github.com/jboxman/asciidoc-aware-link-check/issues"
   },
   "homepage": "http://edseek.com/docs/projects/asciidoc-aware-link-check/",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "asciidoctor": "^2.2.5",
     "async": "^3.2.1",
