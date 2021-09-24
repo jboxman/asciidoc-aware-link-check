@@ -50,6 +50,7 @@ Known issues
 
 * A `HTTP/1.1 301 Moved Permanently` is considered a broken link.
 * Any links within a listing block are ignored.
+* Not compatible with [Antora](https://antora.org/) for pages that include any partials
 
 TODO
 ====
